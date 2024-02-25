@@ -4,10 +4,11 @@ services:
   flask_app:
     container_name: flask_app
     image: thartman/flask_app
-    build: ./api
+    build: ./flask
     ports:
       - "4000:4000"
-    environment: DB_URL=posrgresql://postgres:postgres@flask_db:5432/postgres
+    environment:
+      DB_URL: postgresql://postgres:postgres@flask_db:5432/postgres
     depends_on:
       - flask_db
   flask_db:
@@ -22,5 +23,5 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  volumes:
-    pgdata: {}
+volumes:
+  pgdata: {}
