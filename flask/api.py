@@ -2,6 +2,8 @@ from flask import  request, jsonify, make_response, Blueprint
 
 from models import db
 from models.user import User
+from models.payment import Payment
+from models.bet import Bet
 
 
 api = Blueprint("api", __name__)
